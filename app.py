@@ -18,7 +18,7 @@ conn = 'mongodb://localhost:27017'
 client = pymongo.MongoClient(conn)
 
 # set database 
-db=client.mars_app
+db=client.bitcoin_app
 
 @app.route("/")
 #This route can be edited to reflect machine learning addition
@@ -26,14 +26,17 @@ def index():
     return render_template("index.html")
 
 @app.route("/news")
-def scrape():
-    coin = mongo.db.bitcoin_dict
-    coin_data = coin_scraping.scrape()
-    
-    #Updating Mongodb using update and upsert
-    coin.update({}, coin_data, upsert=True)
-    
-    return redirect("/", code = 302)
+def news():
+    return render_template("news.html")
+
+
+@app.route("/history")
+def history_page():
+    return render_template("history.html")
+
+@app.route("/comparison")
+def compare():
+    return render_template("comparison.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
