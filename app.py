@@ -2,9 +2,9 @@
 from flask import Flask, render_template, redirect
 from flask_pymongo import PyMongo
 import pymongo
-import coin_scraping
+# import coin_scraping
 import os 
-import sqlalchemy
+# import sqlalchemy
 import json
 
 # Flask Setup
