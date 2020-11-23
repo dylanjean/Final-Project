@@ -1,13 +1,15 @@
 # Import Dependencies
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from flask_pymongo import PyMongo
 import pymongo
 # import coin_scraping
 import os 
 # import sqlalchemy
 import json
-
+from tensorflow import keras
 # Flask Setup
+
+model = keras.models.load_model("yellow")
 
 app = Flask(__name__)
 
@@ -35,8 +37,16 @@ def history_page():
     return render_template("history.html")
 
 @app.route("/comparison")
-def compare():
+def comparison():
     return render_template("comparison.html")
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    high = float(request.form['high'])
+    low = float(request.form['low'])
+    prediction = model.predict([[high, low]])[0][0]
+    return render_template("predict.html",prediction=prediction)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -9,20 +9,23 @@ from keras.layers import Input,Dense
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers.experimental import preprocessing
 from tensorflow.keras import layers
-print(tf.__version__)
+import quandl
+# print(tf.__version__)
 # tensorflow V2.1.0
 # load data
-high = input('today high: ')
-high = float(high)
-low = input('today low: ')
-low = float(low)
+# high = input('today high: ')
+# high = float(high)
+# low = input('today low: ')
+# low = float(low)
 
-def perdict(high, low):
-    data = pd.read_csv('bitcoin_data.csv')
+def predict_(high, low):
+    quandl.ApiConfig.api_key = '_66tvRgY5_szTgfB7aeB'
+    df = quandl.get('BITSTAMP/USD')
+    data = df
 
     # reshape data so that it is more workable
     data.reset_index()
-    data = data.drop(columns='Date')
+    # data = data.drop(columns='Date')
     test = data.tail(20)
 
     # get needed columns
@@ -68,19 +71,12 @@ def perdict(high, low):
 
     history = model.fit(
         X_train, y_train,
-        epochs=90,
+        epochs=700,
         # suppress logging
         verbose=0,
         # Calculate validation results on 20% of the training data
         validation_split = 0.2)
-    history = model.fit(
-        X_train, y_train,
-        epochs=90,
-        # suppress logging
-        verbose=0,
-        # Calculate validation results on 20% of the training data
-        validation_split = 0.2)
+    
     predict = model.predict([[high,low]])
     return(predict[0][0])
 
-print(f'we predicted the closing to be: {perdict(high,low)}')
