@@ -15,30 +15,28 @@ def scrape():
 
     #Bitcoin News URL
     url = 'https://dailyfx.com/bitcoin'
- 
+    
     r = requests.get(url)
     soup = BeautifulSoup(r.content, features = 'lxml')
 
-    articles = soup.findAll("a", class_="dfx-articleListItem jsdfx-articleListItem d-flex mb-3")
-    #import pdb; pdb.set_trace()
-
-    #looping through soup response
-    for a in articles:
-        title = a.find("span", class_="dfx-articleListItem__title jsdfx-articleListItem__title font-weight-bold align-middle").text.strip()
-        link = a["href"]        #.find("a", class_="dfx-articleListItem jsdfx-articleListItem d-flex mb-3")['href']
-        published = a.find("span", class_="jsdfx-articleListItem__date text-nowrap")
-        import pdb; pdb.set_trace()
-
-        article = {
-            'title': title,
-            'link': link,
-            'published': published,
-            #'img': image
-        }
-
-    return print(article)
-
-
+    result = soup.findAll("a", class_="dfx-articleListItem jsdfx-articleListItem d-flex mb-3")
+    # import pdb; pdb.set_trace()
+    
+    try:
+        # Identify and return title of listing
+        title = result.find("span", class_="dfx-articleListItem__title jsdfx-articleListItem__title font-weight-bold align-middle").text.strip()
+        # Identify and return price of listing
+        link = result["href"]
+        # Identify and return link to listing
+        published = result.find("span", class_="jsdfx-articleListItem__date text-nowrap").text
+        # Print results only if title, price, and link are available
+        if (title and link and published):
+            print('-------------')
+            print(title)
+            print(link)
+            print(published)
+    except AttributeError as e:
+        print(e)
 
 print('Start scraping')
 scrape()
