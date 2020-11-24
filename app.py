@@ -2,11 +2,12 @@
 from flask import Flask, render_template, redirect, request
 from flask_pymongo import PyMongo
 import pymongo
-# import coin_scraping
+import coin_scraping
 import os 
-# import sqlalchemy
 import json
 from tensorflow import keras
+
+
 # Flask Setup
 
 model = keras.models.load_model("yellow")
@@ -29,8 +30,13 @@ def index():
 
 @app.route("/news")
 def news():
-    return render_template("news.html")
-
+    coin = mongo.db.articles
+    articles = coin_scraping.scrape()
+    
+    #Updating Mongodb using update and upsert
+    coin.update({}, articles, upsert=True)
+    
+    return render_template("news.html", articles = articles)
 
 @app.route("/history")
 def history_page():

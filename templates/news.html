@@ -43,14 +43,28 @@
         </div>
     </nav>
 
-    <body>
+    <content>
+        <h2 style="color: white; text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"> Bitcoin in the News Today</h2>
+        <div class="row">
+            {% for article in articles %}
+            <div class="col-md-6" style="margin-left: 10%;">
 
-    </body>
+                <a style="font-size: large; font-weight: bold;" href={ {articles.link}}>{{articles.title}}</a>
+                <hr>
+                <p>Published: {{articles.date_published}}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+
+
+    </content>
 
     <footer class="footer">
         <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
             <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
         </p>
     </footer>
+</body>
 
 </html>
