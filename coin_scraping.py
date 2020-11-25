@@ -1,5 +1,5 @@
 #Dependencies
-from splinter import Browser
+# from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd 
 import requests
@@ -17,7 +17,7 @@ def scrape():
     url = 'https://dailyfx.com/bitcoin'
     
     r = requests.get(url)
-    soup = BeautifulSoup(r.content, features = 'lxml')
+    soup = BeautifulSoup(r.content, 'html.parser')
 
 
     ##NEWS AND ANALYSIS
