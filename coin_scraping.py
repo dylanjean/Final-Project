@@ -1,5 +1,4 @@
 #Dependencies
-from splinter import Browser
 from bs4 import BeautifulSoup
 import pandas as pd 
 import requests
@@ -24,7 +23,8 @@ def scrape():
     results = soup.findAll("a", class_="dfx-articleListItem jsdfx-articleListItem d-flex mb-3")
     # import pdb; pdb.set_trace()
     
-
+    articles = []
+    counter = 0
     for result in results:
         try:
             # Identify and return title of article
@@ -35,13 +35,21 @@ def scrape():
             published = result.find("span", class_="jsdfx-articleListItem__date text-nowrap").text.strip()
             # Print results only if title, price, and link are available
             if (title and link and published):
-                articles = {
-                    "article": [{
-                        "title": title,
-                        "link": link,
-                        "date_published": published
-                    }]
+                counter+=1
+                article = {
+                    "id": counter,
+                    "title": title,
+                    "link": link,
+                    "date_published": published
                 }
+                articles.append(article)
+                # articles = {
+                #     "article": [{
+                #         "title": title,
+                #         "link": link,
+                #         "date_published": published
+                #     }]
+                # }
                 # article["title"] = title
                 # article["link"] = link
                 # article["date_published"] = published
@@ -49,11 +57,13 @@ def scrape():
                 # print(title)
                 # print(link)
                 # print(published)
-                return print(articles)
+                # print(article)
+                # return print(article)
 
         except AttributeError as e:
             print(e)
 
+    return articles
     # ##REAL TIME NEWS----TWITTER
     # results = soup.findAll("a", class_="dfx-articleListItem jsdfx-articleListItem d-flex mb-3")
     # # import pdb; pdb.set_trace()

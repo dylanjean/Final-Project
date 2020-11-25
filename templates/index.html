@@ -49,21 +49,29 @@
     </nav>
 
     <body>
-        <div class="row about-our-project col-md-6" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
-            <h1 style="font-size: x-large;">Welcome to Our Project</h1>
+        <div class="about-our-project" style="text-align: left; margin-top: 3%; font-family: Georgia, 'Times New Roman', Times, serif; color: white; margin-left: 5%;">
+            <h1 style="color: white; font-weight:bold; margin-left: 30%; margin-top: 3%;">Welcome to Our Project</h1>
             <hr>
-            <p style="margin: 2%;">Our project uses machine learning to predict Bitcoin worth. Additionally, if you are interested, we have pages for news, a bit of bitcoin history, comparison against gold's worth, and an about our author's page.</p>
+            <p style="color: white;">Our project uses machine learning to predict Bitcoin worth. Additionally, if you are interested, we have pages for news, a bit of bitcoin history, comparison against gold's worth, and an about our author's page.</p>
         </div>
         <form id="form" method='POST' action='/predict'>
             <div class="form-group">
-                <h3 class="form-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', 'serif'; color: rgb(78, 224, 243);">Enter Highs and Lows to Predict From</h3>
-                <label for="patient-form">Choose the High and Low to Predict from</label>
-                <input class="form-control col-md-1" style="margin-left:5%; margin-top: 1%;" id="high" name="high" type="text" placeholder="high">
-                <input class="form-control col-md-1" style="margin-left:5%; margin-top: 1%" id="low" name="low" type="text" placeholder="low">
+                <h3 class="form-title col-md-2" style="text-align: center; margin-left: 3%; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', 'serif'; color: turquoise; font-weight: bold;">Predict Bitcoin Here</h3>
+                <label for="predict-form" class="col-md-2" style="color: white; margin-left: 4%">Choose the High and Low to Predict</label>
+                <input class="form-control col-md-1" style="margin-left:7%; margin-top: 1%;" id="high" name="high" type="text" placeholder="high">
+                <input class="form-control col-md-1" style="margin-left:7%; margin-top: 1%" id="low" name="low" type="text" placeholder="low">
             </div>
-            <button id="button" type="submit" class="btn btn-default">Enter</button>
+            <button id="button" style="color:turquoise; margin-left:7%; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;" type="submit" class="btn btn-default">Enter</button>
         </form>
         </div>
+        <div class="about-our-process" style="text-align: left; margin-top: 3%; font-family: Georgia, 'Times New Roman', Times, serif; color: white; margin-left: 5%;">
+            <h3 style="font-weight: bold; margin-bottom: 2%; color:rgb(238, 70, 210);">About Our Process</h3>
+            <p style="margin-top:2%">
+                Here is where Dylan can talk more about the process of training our algorithm and why we chose the modules, the data and model that we did. Thank you Dylan!
+            </p>
+        </div>
+
+
 
     </body>
     <footer class="footer">
