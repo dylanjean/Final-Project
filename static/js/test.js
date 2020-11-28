@@ -27,7 +27,7 @@ d3.json(url).then(function(data) {
             datasets: [{
                 label: 'Closing price of Bitcoin',
                 data: y,
-                borderColor: 'purple',
+                borderColor: 'red',
                 
                 
             }]
@@ -61,7 +61,7 @@ d3.json(url).then(function(data) {
             datasets: [{
                 label: 'Closing price of Bitcoin',
                 data: y2,
-                borderColor: 'purple',
+                borderColor: 'red',
                 
                 
             }]
@@ -95,7 +95,7 @@ d3.json(url).then(function(data) {
             datasets: [{
                 label: 'Closing price of Bitcoin',
                 data: y3,
-                borderColor: 'purple',
+                borderColor: 'red',
                 
                 
             }]

@@ -2,7 +2,7 @@
 from flask import Flask, render_template, redirect, request
 from flask_pymongo import PyMongo
 import pymongo
-# import coin_scraping
+import coin_scraping
 import os 
 import json
 from tensorflow import keras
