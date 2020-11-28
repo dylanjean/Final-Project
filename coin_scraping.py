@@ -1,16 +1,12 @@
 #Dependencies
-<<<<<<< HEAD
-# from splinter import Browser
-=======
->>>>>>> a753679732967dbf6ab3da40ad544f790d076988
 from bs4 import BeautifulSoup
 import pandas as pd 
 import requests
 import pymongo
 
-def init_browser():
-    executable_path = {"executable_path": "chromedriver.exe"}
-    return Browser("chrome", **executable_path, headless=False)
+# def init_browser():
+#     executable_path = {"executable_path": "chromedriver.exe"}
+#     return Browser("chrome", **executable_path, headless=False)
 
 url = "https://dailyfx.com/bitcoin"
 
@@ -66,7 +62,7 @@ def scrape():
 
         except AttributeError as e:
             print(e)
-
+    
     return articles
     # ##REAL TIME NEWS----TWITTER
     # results = soup.findAll("a", class_="dfx-articleListItem jsdfx-articleListItem d-flex mb-3")
