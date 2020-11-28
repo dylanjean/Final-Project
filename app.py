@@ -10,7 +10,7 @@ from tensorflow import keras
 
 # Flask Setup
 
-model = keras.models.load_model("yellow")
+bit_model = keras.models.load_model("yellow")
 
 app = Flask(__name__)
 
@@ -50,7 +50,11 @@ def comparison():
 def predict():
     high = float(request.form['high'])
     low = float(request.form['low'])
-    prediction = model.predict([[high, low]])[0][0]
+    prediction = {'prediction':bit_model.predict([[high, low]])[0][0],
+                    'high':high,
+                    'low':low
+                }
+
     return render_template("predict.html",prediction=prediction)
 
 

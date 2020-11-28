@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Bitcoin: Current on Currency</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -44,11 +46,18 @@
     </nav>
 
     <body>
-
-        <h1 style="text-align: center; color:white">{{prediction}}</h1>
-
+        <h2 style="text-align: center; color:white">Based on our model we predictied that Bitcoin would end at:</h2>
+        <h1 style="text-align: center; color:white">{{prediction.prediction}}{{prediction.high}}</h1>
+        <div style='color:rgb(0, 0, 0)' id="plot"></div>
+        <div class="container">
+            <canvas id="myChart" width="200px" height="200px"></canvas>
+        </div>
     </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+    <script src="../static/js/app.js"></script>
 
+    
+    <script src="../static/js/test.js"></script>
     <footer class="footer">
         <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
             <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
