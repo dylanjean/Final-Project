@@ -35,8 +35,8 @@ def news():
     
     #Updating Mongodb using update and upsert
     coin.update({}, articles, upsert=True)
-    
-    return render_template("news.html", articles = articles)
+    rendered_articles = mongo.db.articles.find_one()
+    return render_template("news.html", rendered_articles = rendered_articles)
 
 @app.route("/history")
 def history_page():
@@ -45,6 +45,10 @@ def history_page():
 @app.route("/comparison")
 def comparison():
     return render_template("comparison.html")
+
+@app.route("/about_the_developers")
+def about():
+    return render_template("about_the_developers.html")
 
 @app.route('/predict', methods=['POST'])
 def predict():
