@@ -1,40 +1,3 @@
-// var ctx = document.getElementById('myChart').getContext('2d');
-// var myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
 
 apiKey =  '_66tvRgY5_szTgfB7aeB'
 
@@ -43,13 +6,8 @@ var url =`https://www.quandl.com/api/v3/datasets/bitstamp/usd.json?&api_key=${ap
 
 
 d3.json(url).then(function(data) {
-    console.log(data.dataset.data[1][0]);
+    console.log(data.dataset);
 
-    function unpack(rows, index) {
-        return rows.map(function(row) {
-          return row[index];
-        });
-      }
       
     var x = []
     var y = []
@@ -57,7 +15,7 @@ d3.json(url).then(function(data) {
     for (i = 0; i < 14 ; i++) {
         x.push(data.dataset.data[i][0])
         y.push(data.dataset.data[i][3])
-      }
+    }
       
       var y = y.reverse()
       var x = x.reverse()
@@ -67,8 +25,76 @@ d3.json(url).then(function(data) {
         data: {
             labels: x,
             datasets: [{
-                label: 'stock price',
+                label: 'Closing price of Bitcoin',
                 data: y,
+                borderColor: 'purple',
+                
+                
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            }
+        }
+    });
+
+    var x2 = []
+    var y2 = []
+
+    for (i = 0; i < 30 ; i++) {
+        x2.push(data.dataset.data[i][0])
+        y2.push(data.dataset.data[i][3])
+    }
+      
+      var y2 = y2.reverse()
+      var x2 = x2.reverse()
+      var ctx2 = document.getElementById('myChart2').getContext('2d');
+      var myChart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: x2,
+            datasets: [{
+                label: 'Closing price of Bitcoin',
+                data: y2,
+                borderColor: 'purple',
+                
+                
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            }
+        }
+    });
+
+    var x3 = []
+    var y3 = []
+
+    for (i = 0; i < 90 ; i++) {
+        x3.push(data.dataset.data[i][0])
+        y3.push(data.dataset.data[i][3])
+    }
+      
+      var y3 = y3.reverse()
+      var x3 = x3.reverse()
+      var ctx2 = document.getElementById('myChart3').getContext('2d');
+      var myChart = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: x3,
+            datasets: [{
+                label: 'Closing price of Bitcoin',
+                data: y3,
                 borderColor: 'purple',
                 
                 
