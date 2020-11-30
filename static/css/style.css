@@ -83,15 +83,6 @@ about-our-project {
 }
 
 
-/* gratitude carousel*/
-
-.carousel-inner img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-}
-
-
 /* small screen adjustments*/
 
 @media(max-width:992px) {
