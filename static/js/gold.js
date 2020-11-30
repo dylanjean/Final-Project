@@ -1,97 +1,83 @@
-// data source : https://www.investing.com/currencies/xau-usd-historical-data
 
-d3.csv("../resources/Cleaned_10_Yr_Gold_Data.csv", conversor, (d) => { 
-   console.log(d) 
-})
+d3.csv("../resources/Cleaned_10_Yr_Gold_Data.csv")
+.then(makeChart);
 
-function conversor(d){
-   d.Price = +d.Price;
-   d.High = +d.High;
-   d.Low = +d.Low;
-   return d;
-}
+function makeChart(gold) {
+   var ten_yr_dateData = gold.map(function(d) {return d.Date});
+   
+   var monthago = new Date(new Date().setDate(new Date().getDate() - 30));
+   var thirty_day_dateData = gold.map(function(d) {return (d.Date > monthago)});
+   console.log(thirty_day_dateData)
 
-chartIt();
-
-async function chartIt() {
-   const data = await getData();
-   const ctx = document.getElementById('chart').getContext("2d");
-   const myChart = new Chart(ctx, {
+   var priceLabels = gold.map(function(d) {return d.Price});
+   var highLabels = gold.map(function(d) {return d.High});
+   var lowLabels = gold.map(function(d) {return d.Low});
+ 
+   var chart = new Chart('chart10yr', {
       type: 'line',
       data: {
-         labels: data.xs,
+         labels: ten_yr_dateData,
          datasets: [
             {
+               data: priceLabels,
                label: 'Close Price',
-               data: data.yPrice,
+               backgroundColor: 'rgba(255, 159, 64, 1)',
+               borderColor: 'rgba(255, 159, 64, 1)',
+               pointRadius: 0.1,
+               borderWidth: 0.2,
+               fill: false               
+            }, {
+               data: highLabels,
+               label: 'Daily High',
+               backgroundColor: 'rgba(255, 99, 132, 1)',
+               borderColor: 'rgba(255, 99, 132, 1)',
+               pointRadius: 0.1,
+               borderWidth: 0.2,
+               fill: false               
+            }, {
+               data: lowLabels,
+               label: 'Daily Low',
+               backgroundColor: 'rgba(54, 162, 235, 1)',
+               borderColor: 'rgba(54, 162, 235, 1)',
+               pointRadius: 0.1,
+               borderWidth: 0.2,
+               fill: false               
+            },
+         ]
+      }
+   });
+
+   var chart = new Chart('chart30day', {
+      type: 'line',
+      data: {
+         labels: thirty_day_dateData,
+         datasets: [
+            {
+               data: priceLabels,
+               label: 'Close Price',
                backgroundColor: 'rgba(255, 159, 64, 0.2)',
                borderColor: 'rgba(255, 159, 64, 1)',
-               borderWidth: 1,
-               fill: false
-         // }, {
-         //       label: 'Daily Low',
-         //       data: data.yLow,
-         //       backgroundColor: 'rgba(255, 99, 132, 0.2)',
-         //       borderColor: 'rgba(255, 99, 132, 1)',
-         //       borderWidth: 1,
-         //       fill: false
-         // }, {
-         //       label: 'daily High',
-         //       data: data.yHigh,
-         //       backgroundColor: 'rgba(54, 162, 235, 0.2)',
-         //       borderColor: 'rgba(54, 162, 235, 1)',
-         //       borderWidth: 1,
-         //       fill: false
-         // }, {
-         //       label: 'Predicted Price',
-         //       data: data.yPredict,
-         //       backgroundColor: 'rgba(255, 206, 86, 0.2)',
-         //       borderColor: 'rgba(255, 206, 86, 1)',
-         //       borderWidth: 1,
-         //       fill: false
-         }]
+               pointRadius: 0.1,
+               borderWidth: 0.2,
+               fill: false               
+            }, {
+               data: highLabels,
+               label: 'Daily High',
+               backgroundColor: 'rgba(255, 99, 132, 0.2)',
+               borderColor: 'rgba(255, 99, 132, 1)',
+               pointRadius: 0.1,
+               borderWidth: 0.2,
+               fill: false               
+            }, {
+               data: lowLabels,
+               label: 'Daily Low',
+               backgroundColor: 'rgba(54, 162, 235, 0.2)',
+               borderColor: 'rgba(54, 162, 235, 1)',
+               pointRadius: 0.1,
+               borderWidth: 0.2,
+               fill: false               
+            },
+         ]
       }
-      // options: {
-      //    title: {
-      //       display: true,
-      //       text: 'Gold Price Predicions (USD)' 
-      //    },
-      //    scales: {
-      //       yAxes: [{
-      //          ticks: {
-      //             // beginAtZero: true
-      //             major: enabled
-      //          }
-      //       }]
-      //    }
-      // }
    });
-}
-
-async function getData() {
-   const xs = [];
-   const yPrice = [];
-   // const yLow = [];
-   // const yHigh = [];
-   // const yPredict = [];
-
-   const response = await fetch('../resources/Cleaned_10_Yr_Gold_Data');
-   const data = await response.text();
-   //console.log(data);
- 
-   const table = data;
-   table.forEach(row => {
-      const Date = row[0];
-      xs.push(Date);
-      const Price = row[1];
-      yPrice.push(parseFloat(Price));
-      // const Low = row[2];
-      // yLow.push(parseFloat(Low));
-      // const High = row[3];
-      // yHigh.push(parseFloat(High));
-      // const Predict = row[4];
-      // yPredict.push(parseFloat(Predict));
-      console.log(Date, Price); //Low, High, Predict);
-   });
-   return {xs, yPrice };
 }
