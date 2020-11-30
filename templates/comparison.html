@@ -1,19 +1,28 @@
-!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Bitcoin: Current on Currency</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="../static/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="../static/js/gold.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/normalize.css">
+    <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/style.css">
+
+    <title>Bitcoin: Current on Currency</title>
+
 </head>
 
 <body>
@@ -36,24 +45,51 @@
                         <a class="nav-link" href="/comparison">How it Compares</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about_the_developers">About the Developers</a>
+                        <a class="nav-link" href="/about_the_authors">About the Authors</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <content>
+    <h1 style="text-align: center;">Let's See How Gold Compares to Other Currencies</h1>
 
-        <h1 style="text-align: center;">Let's See How Gold Compares to Other Currencies</h1>
+    <div class="row about-our-project col-md-6" style="text-align: center; font-family: Georgia, 'Times New Roman', Times, serif;">
+        <h1 style="font-size: x-large;">Welcome to Our Project</h1>
+        <hr>
+        <p style="color: white;">Our project uses machine learning to predict Bitcoin worth. Additionally, if you are interested, we have pages for news, a bit of bitcoin history, comparison against gold's worth, and an about our author's page.</p>
+    </div>
 
-    </content>
+    <div>
+        <form id="form" method='POST' action='/predict_gold'>
+            <div class="form-group">
+                <h3 class="form-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', 'serif'; color: rgb(78, 224, 243);">Enter Daily High and Low Gold Prices to Predict the Daily Closing Price</h3>
+                <label for="patient-form">Choose the High and Low to Predict from</label>
+                <input class="form-control col-md-1" style="margin-left:5%; margin-top: 1%;" id="high" name="high" type="text" placeholder="high">
+                <input class="form-control col-md-1" style="margin-left:5%; margin-top: 1%" id="low" name="low" type="text" placeholder="low">
+            </div>
+            <button id="button" style="color:turquoise; margin-left:7%; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;" type="submit" class="btn btn-default">Enter</button>
+        </form>
+    </div>
+
+    <!-- create canvas for line chart below -->
+    <div style="width:800px";">
+        <canvas id="chart" height="600" width="600"></canvas>
+    </div>
+
+    <!-- description for gold chart process below -->
+    <div class="about-our-process" style="text-align: left; margin-top: 3%; font-family: Georgia, 'Times New Roman', Times, serif; color: white; margin-left: 5%;">
+        <h3 style="font-weight: bold; margin-bottom: 2%; color:rgb(238, 70, 210);">About Our Process</h3>
+        <p style="margin-top:2%">Comments about gold chart using Chart.js
+        Comments about gold chart using Chart.js</p>
+    </div>
 
     <footer class="footer">
         <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
-            <br> <text style="color: rgb(233, 219, 219)">Developers: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
+            <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
         </p>
     </footer>
+
 </body>
 
 </html>
