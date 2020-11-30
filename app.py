@@ -11,6 +11,7 @@ from tensorflow import keras
 # Flask Setup
 
 bit_model = keras.models.load_model("yellow")
+gold_model = keras.models.load_model("gold")
 
 app = Flask(__name__)
 
@@ -61,6 +62,16 @@ def predict():
 
     return render_template("predict.html",prediction=prediction)
 
+@app.route('/gold_predict', methods=['POST'])
+def gold_predict():
+    high = float(request.form['high'])
+    low = float(request.form['low'])
+    gold_prediction = {'gold_prediction':gold_model.predict([[high, low]])[0][0],
+                    'high':high,
+                    'low':low
+                }
+
+    return render_template("gold_predict.html",gold_prediction=gold_prediction)
 
 if __name__ == '__main__':
     app.run(debug=True)
