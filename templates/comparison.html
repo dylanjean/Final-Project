@@ -61,7 +61,7 @@
     </div>
 
     <div>
-        <form id="form" method='POST' action='/predict_gold'>
+        <form id="form" method='POST' action='/gold_predict'>
             <div class="form-group">
                 <h3 class="form-title" style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', 'serif'; color: rgb(78, 224, 243);">Enter Daily High and Low Gold Prices to Predict the Daily Closing Price</h3>
                 <label for="patient-form">Choose the High and Low to Predict from</label>
@@ -71,24 +71,29 @@
             <button id="button" style="color:turquoise; margin-left:7%; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;" type="submit" class="btn btn-default">Enter</button>
         </form>
     </div>
-
+    <br><br>
     <!-- create canvas for line chart below -->
-    <div style="width:800px" ; ">
-        <canvas id="chart " height="600 " width="600 "></canvas>
+    <div style="width:800px";">
+        <canvas id="chart10yr" height="600" width="800"></canvas>
+    </div>
+    <br><br>
+
+    <div style="width:800px";">
+        <canvas id="chart30day" height="600" width="800"></canvas>
     </div>
 
     <!-- description for gold chart process below -->
-    <div class="about-our-process " style="text-align: left; margin-top: 3%; margin-bottom: 5%; font-family: Georgia, 'Times New Roman', Times, serif; color: white; margin-left: 5%; ">
-        <h3 style="font-weight: bold; margin-bottom: 2%; color:rgb(238, 70, 210); ">About Our Process</h3>
-        <p style="margin-top:2% ">Comments about gold chart using Chart.js
+    <div class="about-our-process" style="text-align: left; margin-top: 3%; font-family: Georgia, 'Times New Roman', Times, serif; color: white; margin-left: 5%;">
+        <h3 style="font-weight: bold; margin-bottom: 2%; color:rgb(238, 70, 210);">About Our Process</h3>
+        <p style="margin-top:2%">Comments about gold chart using Chart.js
         Comments about gold chart using Chart.js</p>
     </div>
 
-    <footer class="footer ">
-        <p class="footer-text ">Final Project for UPenn LPS Data Science and Visualization Bootcamp
-            <br> <text style="color: rgb(233, 219, 219) ">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
+    <!-- <footer class="footer">
+        <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
+            <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
         </p>
-    </footer>
+    </footer> -->
 
 </body>
 
