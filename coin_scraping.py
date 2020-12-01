@@ -45,19 +45,6 @@ def scrape():
                 }
                 counter+=1
 
-              #  articles['id'].append(article)
-                #articles.update(article)
-               
-                # article["title"] = title
-                # article["link"] = link
-                # article["date_published"] = published
-                # print('-------------')
-                # print(title)
-                # print(link)
-                # print(published)
-                # print(article)
-                # return print(article)
-
         except AttributeError as e:
             print(e)
     # print(articles)

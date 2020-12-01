@@ -1,11 +1,12 @@
 # Import Dependencies
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, redirect, request, jsonify
 from flask_pymongo import PyMongo
 import pymongo
 import coin_scraping
 import os 
 import json
 from tensorflow import keras
+import pandas as pd
 
 
 # Flask Setup
@@ -72,6 +73,62 @@ def gold_predict():
                 }
 
     return render_template("gold_predict.html",gold_prediction=gold_prediction)
+@app.route("/api/v1")
+def bit_analysis():
+    label_df = pd.read_csv('resources/actual_values.csv')
+    predata_df = pd.read_csv('resources/predictions.csv')
 
+    l_data = label_df.labels.values
+    p_data = predata_df.predicitons.values
+    p_data = p_data.tolist()
+    l_data = l_data.tolist()
+    json = {}
+    json['predcitions'] = p_data
+    json['labels'] = l_data
+    return jsonify(json)
+
+@app.route("/api/gold")
+def gold_analysis():
+    gold_df = pd.read_csv('resources/30_Days_Gold_Predict.csv')
+
+    date = gold_df.Date.values
+    price = gold_df.Price.values
+    prediction = gold_df.Prediction.values
+    low = gold_df.Low.values
+    high = gold_df.High.values
+    date = date.tolist()
+    price = price.tolist()
+    prediction = prediction.tolist()
+    low = low.tolist()
+    high = high.tolist()
+    json = {}
+    json['date'] = date
+    json['price'] = price
+    json['prediction'] = prediction
+    json['low'] = low
+    json['high'] = high
+    return jsonify(json)
+
+@app.route("/api/compare")
+def compare_analysis():
+    gold_df = pd.read_csv('resources/Cleaned_10_Yr_Gold_Data.csv')
+
+    date = gold_df.Date.values
+    price = gold_df.Price.values
+    
+    btc = gold_df.BTC_Price.values
+    sp = gold_df.SP_Price.values
+    date = date.tolist()
+    price = price.tolist()
+    
+    btc = btc.tolist()
+    sp = sp.tolist()
+    json = {}
+    json['date'] = date
+    json['price'] = price
+    
+    json['BTC_Price'] = btc
+    json['SP_Price'] = sp
+    return jsonify(json)
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,13 +1,16 @@
 // Gold price data source: https://www.investing.com/currencies/xau-usd-historical-data
 
-d3.csv("../resources/Cleaned_10_Yr_Gold_Data.csv")
+d3.json("/api/compare")
 .then(makeChart);
-
+var url = '/api/compare'
+d3.json(url).then(function(data) {
+   console.log(data)
+})
 function makeChart(gold) {
-   var ten_yr_dateData = gold.map(function(d) {return d.Date});
-   var priceLabels = gold.map(function(d) {return d.Price});
-   var btcLabels = gold.map(function(d) {return d.BTC_Price});
-   var spLabels = gold.map(function(d) {return d.SP_Price});
+   var ten_yr_dateData = gold.date;
+   var priceLabels = gold.price;
+   var btcLabels = gold.BTC_Price;
+   var spLabels = gold.SP_Price;
 
    var chart = new Chart('chart10yr', {
       type: 'line',

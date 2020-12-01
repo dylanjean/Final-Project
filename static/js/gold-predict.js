@@ -1,15 +1,18 @@
 
 // Gold price data source: https://www.investing.com/currencies/xau-usd-historical-data
 
-d3.csv("../resources/30_Days_Gold_Predict.csv")
+d3.json("/api/gold")
 .then(makeChart);
-
+var url = '/api/gold'
+d3.json(url).then(function(data) {
+   console.log(data)
+})
 function makeChart(gold) {
-   var thirty_day_dateData = gold.map(function(d) {return d.Date});
-   var priceLabels = gold.map(function(d) {return d.Price});
-   var highLabels = gold.map(function(d) {return d.High});
-   var lowLabels = gold.map(function(d) {return d.Low});
-   var predictLabels = gold.map(function(d) {return d.Prediction});
+   var thirty_day_dateData = gold.date;
+   var priceLabels = gold.price;
+   var highLabels = gold.high;
+   var lowLabels = gold.low;
+   var predictLabels = gold.prediction;
 
    var chart = new Chart('chart30day', {
       type: 'line',
