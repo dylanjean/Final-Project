@@ -58,7 +58,7 @@ function makeChart(gold) {
          title: {
             display: true,
             fontSize: 24,
-            fontColor: 'rgba(255, 255, 255, 0.7)',
+            fontColor: 'rgba(64, 224, 208, 1)',
             padding: 15,
             text: "Predicted Gold Prices vs. Actual Gold Prices for Last 30 Days",
          },
@@ -75,14 +75,14 @@ function makeChart(gold) {
          legend: {
             display: true,
             labels: {
-                fontColor: 'rgba(255, 255, 255, 0.7)',
+                fontColor: 'rgba(255, 255, 255, 1)',
             }
          },     
          scales: {
             xAxes: [{
                ticks: {
                   fontSize: 12,
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                },
                gridLines: {
                   color: 'rgb(148, 68, 250, 0.6)',
@@ -91,14 +91,14 @@ function makeChart(gold) {
                scaleLabel: {
                   display: true,
                   labelString: "Date",
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                   fontSize: 20,
                }
             }],
             yAxes: [{
                ticks: {
                   fontSize: 12,
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                },
                gridLines: {
                   color: 'rgba(148, 68, 250, 0.8)',
@@ -107,7 +107,7 @@ function makeChart(gold) {
                scaleLabel: {
                   display: true,
                   labelString: "Price in USD",
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                   fontSize: 20,
                }
             }]      
