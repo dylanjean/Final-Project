@@ -50,22 +50,43 @@
         </div>
     </nav>
 
-    <body>
-
-        <br><br>
-        <h1 style="text-align: center; color:rgb(255, 218, 8)">{{gold_prediction.gold_prediction}}</h1>
-        
-        <br><br>
-        <div style="width:800px">
-            <canvas id="chart30day" width="800" height="600"></canvas>
+    <content>
+        <div class="about-our-project col-md-8" style="margin: auto; font-family: Georgia, 'Times New Roman', Times, serif; color: white;">
+            <h1 style="margin-top: 5%; color: turquoise; font-weight:bold; text-align: center;">Gold Price Predictions</h1>
+            <hr>
+            <br>
+            <h3 style="text-align: center">Based on the previous High and Low inputs, the predicted gold closing price is:</h3>
+            <br>
+            <h1 style="text-align: center; color:rgb(255, 218, 8)">{{gold_prediction.gold_prediction}}</h1>
+            <br>
+            <br>            
+            <p style="color: white; text-align: justify;">  Our project uses machine learning to predict Bitcoin worth using the previous day's values. We designed our application hoping it would be helpful for someone trying to evaluate bitcoin for their own Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, fugit dolor, accusantium hic laboriosam aut quisquam laudantium dignissimos quo fugiat officia a harum pariatur sint iste quas? Hic, incidunt a. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus, magni nulla voluptatem cumque amet, laborum hic dignissimos praesentium odit aliquam architecto velit excepturi tenetur perferendis consequuntur, eaque sequi consequatur odio!        
+            </p>
+        </div>
+        <br>
+        <br>
+        <!-- <div class="col-md-10" style="text-align: center"> -->
+            <div class="container" style="padding-left: 60px; padding-right: 60px">
+                <canvas id="chart30day" width="800" height="600"></canvas>
+            </div>
+        <!-- </div> -->
+        <br>
+        <div class="about-our-process col-md-8" style="margin: auto; font-family: Georgia, 'Times New Roman', Times, serif; color: white;">
+            <br>
+            <h3 style="text-align: left; font-weight: bold; margin-bottom: 2%; color:rgb(238, 70, 210);">About Our Process</h3>
+            <p style="margin:auto; text-align: justify">
+                We created this web application as a powerful tool to minimize risk for someone who is looking to invest in Bitcoin. This application allows you to perdict the end price of Bitcoin for the day based on the High and Low of the previous day. We are able to make these
+                predictions via our ML model that has been trained on past Bitcoin data to give as accutrate a prediction as possible. We chose to use the previous days data to predict because.... We chose tensorflow as opposed to .... because we
+                used a python function to load it into the flask app because it was easier than trying to use pickle. 
+            </p>
         </div>
 
-    </body>
+    </content>
 
-    <!-- <footer class="footer">
+    <footer class="footer">
         <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
             <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
         </p>
-    </footer> -->
+    </footer>
 
 </html>

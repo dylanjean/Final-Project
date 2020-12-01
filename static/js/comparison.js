@@ -28,8 +28,8 @@ function makeChart(gold) {
             }, {
                data: btcLabels,
                label: 'Bitcoin Price',
-               backgroundColor: 'rgba(255, 99, 132, 0.2)',
-               borderColor: 'rgba(255, 99, 132, 1)',
+               backgroundColor: 'rgba(252, 18, 18, 0.2)',
+               borderColor: 'rgba(252, 18, 18, 1)',
                pointRadius: 0.1,
                borderWidth: 0.5,
                fill: true               
@@ -48,14 +48,14 @@ function makeChart(gold) {
          title: {
             display: true,
             fontSize: 24,
-            fontColor: 'rgba(255, 255, 255, 0.7)',
+            fontColor: 'rgba(64, 224, 208, 1)',
             padding: 15,
-            text: "Historical Prices of Gold, Bitcoin, and the S&P 500 Index over 10 Years",
+            text: "10 Year Look at Gold, Bitcoin, and the S&P 500 Index Prices",
          },
          legend: {
             display: true,
             labels: {
-                fontColor: 'rgba(255, 255, 255, 0.7)',
+                fontColor: 'rgba(255, 255, 255, 1)',
             }
          },         
          elements: {
@@ -67,7 +67,7 @@ function makeChart(gold) {
             xAxes: [{
                ticks: {
                   fontSize: 12,
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                },
                gridLines: {
                   color: 'rgb(148, 68, 250, 0.6)',
@@ -76,14 +76,14 @@ function makeChart(gold) {
                scaleLabel: {
                   display: true,
                   labelString: "Date",
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                   fontSize: 20,
                }
             }],
             yAxes: [{
                ticks: {
                   fontSize: 12,
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                },
                gridLines: {
                   color: 'rgba(148, 68, 250, 0.8)',
@@ -92,7 +92,7 @@ function makeChart(gold) {
                scaleLabel: {
                   display: true,
                   labelString: "Price in USD",
-                  fontColor: 'rgba(255, 255, 255, 0.7)',
+                  fontColor: 'rgba(255, 255, 255, 0.8)',
                   fontSize: 20,
                }
             }]      

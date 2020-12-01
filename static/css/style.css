@@ -70,7 +70,7 @@ about-our-project {
     color: rgb(252, 18, 18);
     background-color: rgb(49, 47, 47);
     margin-top: 50px;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     width: 100%;
 }
