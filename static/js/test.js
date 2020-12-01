@@ -19,6 +19,17 @@ d3.json(url).then(function(data) {
       
       var y = y.reverse()
       var x = x.reverse()
+    
+      var c1 = 'red'
+
+      if (y[0] < y[y.length - 1]) {
+        var c1 = 'green'
+      } 
+
+
+      
+
+
       var ctx = document.getElementById('myChart').getContext('2d');
       var myChart = new Chart(ctx, {
         type: 'line',
@@ -27,7 +38,7 @@ d3.json(url).then(function(data) {
             datasets: [{
                 label: 'Closing price of Bitcoin',
                 data: y,
-                borderColor: 'red',
+                borderColor: c1,
                 
                 
             }]
@@ -53,6 +64,16 @@ d3.json(url).then(function(data) {
       
       var y2 = y2.reverse()
       var x2 = x2.reverse()
+
+
+      var c2 = 'red'
+
+      if (y2[0] < y2[y2.length - 1]) {
+        var c2 = 'green'
+      } 
+
+
+
       var ctx2 = document.getElementById('myChart2').getContext('2d');
       var myChart = new Chart(ctx2, {
         type: 'line',
@@ -61,7 +82,7 @@ d3.json(url).then(function(data) {
             datasets: [{
                 label: 'Closing price of Bitcoin',
                 data: y2,
-                borderColor: 'red',
+                borderColor: c2,
                 
                 
             }]
@@ -87,6 +108,14 @@ d3.json(url).then(function(data) {
       
       var y3 = y3.reverse()
       var x3 = x3.reverse()
+
+      var c3 = 'red'
+
+      if (y3[0] < y3[y3.length - 1]) {
+        var c3 = 'green'
+      } 
+
+
       var ctx2 = document.getElementById('myChart3').getContext('2d');
       var myChart = new Chart(ctx2, {
         type: 'line',
@@ -95,7 +124,7 @@ d3.json(url).then(function(data) {
             datasets: [{
                 label: 'Closing price of Bitcoin',
                 data: y3,
-                borderColor: 'red',
+                borderColor: c3,
                 
                 
             }]
@@ -110,4 +139,17 @@ d3.json(url).then(function(data) {
             }
         }
     });
+    var pre = d3.selectAll("#prediction")
+    // var pre = pre.text()
+    
+    var y4 = y.reverse();
+    var yesterday =y4[0];
+    console.log(parseFloat(pre.text()))
+    if (parseFloat(pre.text()) < yesterday) {
+        pre.style('color', 'red')
+      } else {
+        pre.style('color', 'green');
+      }
+    
 })
+

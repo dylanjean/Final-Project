@@ -40,7 +40,7 @@
                         <a class="nav-link" href="/comparison">How it Compares</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about_the_authors">About the Authors</a>
+                        <a class="nav-link" href="/about_the_developers">About the Authors</a>
                     </li>
                 </ul>
             </div>
@@ -49,33 +49,33 @@
 
     <content>
         <h2 style="text-align: center; color:white">Based on our model, Bitcoin will end</h2>
-        <h1 style="text-align: center; color:white">{{prediction.prediction}}</h1>
+        <h1 style="text-align: center; color:white" id='prediction'>{{prediction.prediction}}</h1>
         <!-- <div style='color:rgb(0, 0, 0)' id="plot"></div> -->
         <div class="container">
             <!-- <canvas id="myChart" width="200px" height="200px"></canvas> -->
         </div>
-        <div class="container">
+        <div class="graph-carousel col-md-8" style="margin:auto">
             <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                 </ol>
-                <div class="carousel-inner" >
+                <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <canvas id="myChart" width="200px" height="200px"></canvas>
+                        <canvas id="myChart" class="d-block mx-auto" height="500"></canvas>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Last 14 days</h5>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <canvas id="myChart2" width="200px" height="200px"></canvas>
+                        <canvas id="myChart2" class="d-block mx-auto" height="500"></canvas>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Last 30 days</h5>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <canvas id="myChart3" width="200px" height="200px"></canvas>
+                        <canvas id="myChart3" class="d-block mx-auto" height="500"></canvas>
                         <div class="carousel-caption d-none d-md-block">
                             <h5>Last 90 days</h5>
                         </div>
@@ -93,25 +93,28 @@
         </div>
         <div style="background:transparent !important" class="jumbotron jumbotron-fluid ">
             <div class="container ">
-              <h1 class="display-4" style="color: azure;">Why Bitcoin?</h1>
-              <img src="https://media1.giphy.com/media/Vi5qBEpExoCmzEcDvF/giphy.gif?cid=ecf05e47nha6z0h4rqhcb2bvbqeuoln7rdl34hqle5b25as8&rid=giphy.gif"  width="400px" height="250px" >
-              <p class="lead" style="color: azure;">The future outlook for bitcoin is the subject of much debate. While the financial media is proliferated by so-called crypto-evangelists, Harvard University Professor of Economics and Public Policy Kenneth Rogoff suggests that the “overwhelming sentiment” among crypto advocates is that the total “market capitalisation of cryptocurrencies could explode over the next five years, rising to $5-10 [trillion].”</p>
+                <h1 class="display-4" style="color: azure;">Why Bitcoin?</h1>
+                <img src="https://media1.giphy.com/media/Vi5qBEpExoCmzEcDvF/giphy.gif?cid=ecf05e47nha6z0h4rqhcb2bvbqeuoln7rdl34hqle5b25as8&rid=giphy.gif" width="400px" height="250px">
+                <p class="lead" style="color: azure;">The future outlook for bitcoin is the subject of much debate. While the financial media is proliferated by so-called crypto-evangelists, Harvard University Professor of Economics and Public Policy Kenneth Rogoff suggests that the “overwhelming
+                    sentiment” among crypto advocates is that the total “market capitalisation of cryptocurrencies could explode over the next five years, rising to $5-10 [trillion].”</p>
             </div>
-          </div>
-          <div style="background:transparent !important" class="jumbotron jumbotron-fluid text-right">
+        </div>
+        <div style="background:transparent !important" class="jumbotron jumbotron-fluid text-right">
             <div class="container ">
-              <h1 class="display-4" style="color: azure;">What is blockchain?</h1>
-              <img src="https://media0.giphy.com/media/MFabj1E9mgUsqwVWHu/giphy.gif?cid=ecf05e477om3duj0htnskoxznahu1gkg7mts2rhdvfc0tksd&rid=giphy.gif"  width="400px" height="250px" >
-              <p class="lead" style="color: azure;">A blockchain is a digital record of transactions. The name comes from its structure, in which individual records, called blocks, are linked together in single list, called a chain. Blockchains are used for recording transactions made with cryptocurrencies, such as Bitcoin, and have many other applications.</p>
+                <h1 class="display-4" style="color: azure;">What is blockchain?</h1>
+                <img src="https://media0.giphy.com/media/MFabj1E9mgUsqwVWHu/giphy.gif?cid=ecf05e477om3duj0htnskoxznahu1gkg7mts2rhdvfc0tksd&rid=giphy.gif" width="400px" height="250px">
+                <p class="lead" style="color: azure;">In relation to Bitcoin, blockchain is deployed as a digital record of peer-to-peer transactions. The name comes from its structure, in which individual records called blocks are linked together in a single list called a chain. Blockchains are used for recording transactions made with
+                    cryptocurrencies such as Bitcoin and have many other applications.</p>
             </div>
-          </div>
-    </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
-    <script src="../static/js/app.js"></script>
+        </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+<!-- <script src="../static/js/app.js"></script> -->
 
 
-    <script src="../static/js/test.js"></script>
+<script src="../static/js/test.js"></script>
 
 </body>
+
 
 </html>
