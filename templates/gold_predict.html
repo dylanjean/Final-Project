@@ -50,22 +50,32 @@
         </div>
     </nav>
 
-    <body>
-
-        <br><br>
-        <h1 style="text-align: center; color:rgb(255, 218, 8)">{{gold_prediction.gold_prediction}}</h1>
-        
-        <br><br>
-        <div style="width:800px">
-            <canvas id="chart30day" width="800" height="600"></canvas>
+    <content>
+        <div class="about-our-project col-md-8" style="margin: auto; font-family: Georgia, 'Times New Roman', Times, serif; color: white;">
+            <h1 style="margin-top: 5%; color: turquoise; font-weight:bold; text-align: center;">Gold Price Predictions</h1>
+            <hr>
+            <br>
+            <h3 style="text-align: center">Based on the previous High and Low inputs, the predicted gold closing price is:</h3>
+            <br>
+            <h1 style="text-align: center; color:rgb(255, 218, 8)">{{gold_prediction.gold_prediction}}</h1>
+            <br>
+            <br>            
+            <p style="color: white; text-align: justify;">The chart below shows a summary of our gold price predictions for the last thirty days. The actual gold price is represented by the gold-colored line, and the Tensorflow ML prediction is shown as a blue line. The predicted value very closely matches the actual value in most cases, and never goes outside the grey-shaded high-low range.
+            </p>
         </div>
+        <br>
+        <br>
+            <div class="container" style="padding-left: 60px; padding-right: 60px">
+                <canvas id="chart30day" width="800" height="600"></canvas>
+            </div>
+        <br>
 
-    </body>
+    </content>
 
-    <!-- <footer class="footer">
+    <footer class="footer">
         <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
             <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
         </p>
-    </footer> -->
+    </footer>
 
 </html>
