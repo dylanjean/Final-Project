@@ -1,19 +1,26 @@
-!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>Bitcoin: Current on Currency</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <script src="../static/js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="../static/js/gold-predict.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
+
+    <title>Bitcoin: Current on Currency</title>
+
 </head>
 
 <body>
@@ -45,14 +52,20 @@
 
     <body>
 
-        <h1 style="text-align: center; color:white">{{gold_prediction.gold_prediction}}</h1>
+        <br><br>
+        <h1 style="text-align: center; color:rgb(255, 218, 8)">{{gold_prediction.gold_prediction}}</h1>
+        
+        <br><br>
+        <div style="width:800px">
+            <canvas id="chart30day" width="800" height="600"></canvas>
+        </div>
 
     </body>
 
-    <footer class="footer">
+    <!-- <footer class="footer">
         <p class="footer-text">Final Project for UPenn LPS Data Science and Visualization Bootcamp
             <br> <text style="color: rgb(233, 219, 219)">Authors: Alex Schanne, Danny Petrella, Dave Damon, and Dylan Jean </text>
         </p>
-    </footer>
+    </footer> -->
 
 </html>
