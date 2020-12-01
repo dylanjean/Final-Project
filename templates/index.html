@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Bitcoin: Current on Currency</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
 
-    <script src="../static/js/app.js"></script>
+   
 
 </head>
 
@@ -78,11 +78,19 @@
         <div class="about-our-process col-md-8" style="margin: auto; font-family: Georgia, 'Times New Roman', Times, serif; color: white;">
             <h3 style="text-align: left; font-weight: bold; margin-bottom: 2%; color:rgb(238, 70, 210);">About Our Process</h3>
             <p style="margin:auto">
-                We created this web application as a powerful tool to minimize risk for someone who is looking to invest in Bitcoin. This application allows you to perdict the end price of Bitcoin for the day based on the High and Low of the previous day. We are able to make these
-                predictions via our ML model that has been trained on past Bitcoin data to give as accutrate a prediction as possible. We chose to use the previous days data to predict because.... We chose tensorflow as opposed to .... because we
-                used a python function to load it into the flask app because it was easier than trying to use pickle. 
+                We created this web application as a powerful tool to minimize risk for someone who is looking to invest in Bitcoin. This application will allow you to predict the end price of Bitcoin for the day based on the High and Low. We are able to make these
+                predictions used out ML models that have been trained on the past data to give as accurate a prediction as possible. We chose to use the previous 30 days data to predict because we realized the outdated data tended to skew our model and yielded less accurate results. 
+                We chose tensorflow as opposed to scikit-learn because of we we found that tensorflow allowed us to fine tune our model to minimize loss as much as possible.The we used a python function to load it into the flask app because it was easier than trying to use pickle.
+                <br><br>
+                ...pickel is dumb.
+
             </p>
         </div>
+        
+        <div>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <script src="../static/js/index.js"></script>
 
 
 
